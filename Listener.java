@@ -6,7 +6,7 @@ public class Listener extends User {
     private final List<Playlist> playlists;
     private final List<Song> likedSongs;
     private final List<Album> savedAlbums;
-    private Subscription subscription;
+    private final Subscription subscription;
 //calls for the subscription class to be used as an attrib.
         public Listener(String name, String email, String password) {
         super(name, email, password);
