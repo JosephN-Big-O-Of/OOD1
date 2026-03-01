@@ -6,14 +6,34 @@ public class Listener extends User {
     private final List<Playlist> playlists;
     private final List<Song> likedSongs;
     private final List<Album> savedAlbums;
-    private String Subscription sub;
-
-    public Listener(String name, String email, String password) {
+    private Subscription subscription;
+//calls for the subscription class to be used as an attrib.
+        public Listener(String name, String email, String password) {
         super(name, email, password);
+        this.subscription = new Subscription();
+
         this.playlists = new ArrayList<>();
         this.likedSongs = new ArrayList<>();
         this.savedAlbums = new ArrayList<>();
     }
+
+    public Subscription getSubscription() {
+        return subscription;
+    }
+
+    // uses subscription class methods to subscribe cancel etc
+    public void subscribe(String plan) {
+        subscription.subscribe(plan);
+    }
+
+    public void cancelSubscription() {
+        subscription.cancel();
+    }
+
+    public boolean hasActiveSubscription() {
+        return subscription.isActive();
+    }
+
 
     // Playlists
     public Playlist createPlaylist(String playlistName) {
